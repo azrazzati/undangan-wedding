@@ -55,6 +55,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (pembuka) {
           pembuka.scrollIntoView({ behavior: "smooth" });
         }
+
+        // 🎵 mulai musik setelah tombol diklik
+        if (music) {
+        music.play().catch(err => console.log("Autoplay blocked:", err));
+        }
+
       });
     }
   });
