@@ -1,0 +1,440 @@
+:root{
+    --pink: #f14e95;
+    --pink-muted: #fdf4f8;
+    --pink-hover: #d84686;
+    --blue: #9AB3C7;
+    --silver: #C5C7C9;
+    --navy: #2F3B52;
+    --lavender: #C3B6D9;
+    --ivory: #F5F4F2;
+    --muted-green: #A5B1A0;
+    --white: #fff;
+    --grey: #ccc;
+    --light-grey: #d4d4d4;
+    --very-light-grey: #eee;
+    --dark-grey: #999;
+    --dark: #151515;
+    --black: #000;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+*{
+    font-family: 'Work Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.transition {
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% { opacity: 0; }
+    100%{ opacity: 1; }
+}
+
+h1.fw-normal {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+  
+.huruf-sambung {
+    font-family: "Sacramento", cursive;
+    font-size: 3rem;
+}
+
+/* =========================
+   NAVIGATION BAR
+   ========================= */
+.nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    list-style-type: none;
+    display: flex;
+    background-color: var(--navy);
+    height: 80px;
+    z-index: 10;
+}
+
+/* sembunyikan navbar dulu */
+.nav {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(50px); /* geser ke bawah biar animasi lebih smooth */
+    transition: all 0.8s ease;
+  }
+  
+  /* munculkan navbar */
+  .nav.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+.nav li{
+    flex: 1;
+    position: relative;
+}
+
+.nav li a{
+    text-decoration: none;
+    color: var(--very-light-grey);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    z-index: 1;
+    position: relative;
+}
+
+.nav li a:hover{
+    color: var(--white);
+}
+
+/* lingkaran background musik */
+.nav .nav-music {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: var(--blue);
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+}
+
+/* tombol musik (ikon disc) */
+.nav li a.nav-item-music {
+    transform: translateY(-20%);
+    font-size: 30px;
+    top: -30px;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav li a.rotate {
+    animation: rotateAnimation 5s linear infinite;
+}
+
+@keyframes rotateAnimation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+  
+/* =========================
+   HERO SECTION
+   ========================= */
+#hero-section {
+    width: 100%;
+    height: 100vh;
+    background: url("../img/background.png") center center / cover no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+    color: var(--white);
+}
+
+#hero-section::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+#hero-section .container {
+    position: relative;
+    z-index: 3;
+}
+
+#hero-section h1{
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+#hero-section p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#hero-section .btn-get-started {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 12px 32px;
+    transition: 0.5s;
+    color: var(--navy);
+    background: var(--white);
+    border-radius: 25px;
+}
+
+#hero-section .btn-get-started:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.text-blue {
+    color: var(--blue);
+}
+
+.pembuka-section {
+    padding-top: 75px;
+}
+
+.section-title {
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.section-title h3 {
+    margin: 15px 0 0 0;
+    font-size: 32px;
+}
+
+.section-title p{
+    margin: 15px auto 0 auto;
+}
+
+.section-bg {
+    background-color: var(--ivory);
+}
+
+#content-section {
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar{
+    width: 8px;
+}
+
+::-webkit-scrollbar-track{
+    background: var(--lavender);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--blue);
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: var(--blue-hover);
+}
+
+.section-title h1 {
+  font-family: "Great Vibes", cursive;
+  color: var(--navy);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.card-acara {
+  background: var(--ivory);
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.card-acara h4 {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.card-acara p {
+  margin: 8px 0;
+  color: var(--navy);
+}
+
+.btn-calendar {
+  text-decoration: none !important;  /* hilangkan garis bawah */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-calendar:hover {
+  background-color: var(--navy);
+  color: var(--ivory);
+  text-decoration: none;  /* tetap tidak ada underline saat hover */
+}
+
+/* Override agar tidak ketimpa */
+.section-title h1.text-blue {
+  color: var(--blue);
+}
+
+.section-title h1.huruf-sambung {
+  font-family: "Sacramento", cursive;
+}
+
+.border-blue{
+    border-radius: 15px;
+    border: 2px solid var(--blue);
+}
+
+/* Custom tombol biru */
+.btn-blue {
+  background-color: var(--blue);
+  color: var(--white) !important;
+  border: none;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+
+.btn-blue:hover {
+  background-color: var(--navy);
+  color: var(--ivory) !important;
+}
+
+.credit-card {
+    background-color: var(--lavender);
+    background-size: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    width: 300px;
+    color: var(--ivory);
+    position: relative;
+}
+
+.card-logo {
+    width: 75px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.card-container {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.card-sim {
+    width: 30px;
+    margin-right: 10px;
+}
+.card-number {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+}
+
+.card-name {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.copy-button {
+    font-family: 'Courier New', Courier, monospace;
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    background-color: var(--ivory);
+    color: var(--navy);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn-kirim {
+    font-weight: bold;
+    color: var(--ivory);
+    background: var(--blue);
+}
+
+.btn-kirim:hover{
+    background: var(--blue-hover);
+    color: var(--ivory);
+}
+#disqus_thread {
+  margin-bottom: 10px !important;
+  padding-bottom: 0 !important;
+}
+
+#penutup-section {
+    position:relative;
+    height: 100vh;
+    color: var(--ivory);
+    display: flex;
+    align-items: center;
+}
+
+#penutup-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5)60%, rgba(0,0,0,7) 100%), url('../img/background.png');
+    background-position: center;
+    background-size: cover;
+}
+
+#penutup-section .huruf-sambung {
+    color: var(--ivory); /* jadi putih */
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8); /* biar tetap kebaca di background */
+    font-size: 2.5rem; /* agak diperbesar */
+}
+
+
+@media (max-width: 768px){
+
+    #hero-section h1{
+        font-size: 45px;
+    }
+
+    .nav li a.nav-item-music{
+        font-size: 40px;
+        top: -25px;
+    }
+
+    .nav .nav-music{
+        top: -15px;
+        width: 60px;
+        height: 60px;
+    }
+
+}
